@@ -4,10 +4,10 @@ var giphyArray = ["dog", "cat"];
 function displayGifs() {
 
     var gif = $(this).attr("data-name");
-    //var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
-    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=xhOeDtimrOu6oqIq9pKAlNILZZqFHYAL&q=" + gif + "&limit=10&offset=0&rating=G&lang=en"
 
-    // Creates AJAX call for the specific movie button being clicked
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=xhOeDtimrOu6oqIq9pKAlNILZZqFHYAL&q=" + gif + 
+    "&limit=10&offset=0&rating=G&lang=en"
+
     $.ajax({
       url: queryURL,
       method: "GET"
@@ -32,7 +32,7 @@ function displayGifs() {
 function renderButtons() {
 
     $("#buttons-view").empty();
-    // Loops through the array of movies
+
     for (var i = 0; i < giphyArray.length; i++) {
 
       var a = $("<button>");
@@ -46,23 +46,17 @@ function renderButtons() {
       $("#buttons-view").append(a);
     }
   }
-/*
-  // This function handles events where the add movie button is clicked
+
   $("#add-movie").on("click", function(event) {
     event.preventDefault();
-    // This line of code will grab the input from the textbox
-    var movie = $("#movie-input").val().trim();
 
-    // The movie from the textbox is then added to our array
-    movies.push(movie);
+    var gif = $("#movie-input").val().trim();
 
-    // Calling renderButtons which handles the processing of our movie array
+    giphyArray.push(gif);
+
     renderButtons();
-  });*/
+  });
 
-  // Adding click event listeners to all elements with a class of "movie"
-  //stop and start gifs
   $(document).on("click", ".gif", displayGifs);
 
-  // Calling the renderButtons function to display the intial buttons
   renderButtons();
