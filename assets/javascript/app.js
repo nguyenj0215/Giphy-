@@ -9,7 +9,7 @@ $(document).ready(function () {
         //Button reference
         var gif = $(this).attr("data-name");
 
-        //Giphy API ajac reference
+        //Giphy API ajax reference
         var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=xhOeDtimrOu6oqIq9pKAlNILZZqFHYAL&q=" + gif +
             "&limit=10&offset=0&rating=G&lang=en";
 
@@ -34,12 +34,16 @@ $(document).ready(function () {
                 //Gif display
                 var newImg = response.data[j].images.fixed_height_still.url
                 var imgElement = $("<img>").attr("src", newImg)
+
                 //Data still reference
                 imgElement.attr("data-still", response.data[j].images.fixed_height_still.url)
+
                 //Data animate reference
                 imgElement.attr("data-animate", response.data[j].images.fixed_height.url)
+
                 //Initial state 
                 imgElement.attr("data-state", "paused")
+
                 //Class for buttons to trigger state change on click
                 imgElement.addClass("gifState")
                 newDiv.append(imgElement)
@@ -75,6 +79,7 @@ $(document).ready(function () {
         var currentGifState = $(this).attr("data-state")
 
         if (currentGifState == "paused") {
+
             //If gif is paused change src link to animated gif and change data state value to active
             $(this).attr("src", $(this).attr("data-animate"))
             $(this).attr("data-state", "active")
@@ -94,6 +99,8 @@ $(document).ready(function () {
         giphyArray.push(gif);
 
         renderButtons();
+
+        $("#gif-input").val(" ")
     });
 
     $(document).on("click", ".gif", displayGifs);

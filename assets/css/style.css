@@ -2,7 +2,7 @@ body, html {
     margin: 0;
     padding: 0;
     margin-left: 20px;
-    background-color: black;
+    background-image: radial-gradient(circle, rgb(219, 72, 72), rgb(231, 231, 61), rgb(73, 201, 73))
 }
 .title {
     position: absolute;
@@ -10,8 +10,12 @@ body, html {
     left: 75%;
     font-family: 'Modak', cursive;
     font-size: 50px;
-    color: yellow;
-    letter-spacing: 4px;
+    color: white;
+    text-shadow: 4px 4px 8px black;
+    letter-spacing: 5px;
+}
+.container {
+    width: 75%;
 }
 .gif {
     margin-right: 10px;
@@ -19,19 +23,24 @@ body, html {
     margin-bottom: 20px;
     font-size: 20px;
     background-color: black;
-    color: yellow;
+    color: white;
+}
+.addLabel {
+    font-size: 20px;
+    background-color: black;
+    color: white;
+    padding-left: 2px;
+    margin-right: 5px;
 }
 #add-gifs {
     font-size: 20px;
     background-color: black;
-    color: yellow;
+    color: white;
     padding: 2px;
 }
 #gif-input {
     font-size: 20px;
-    background-color: black;
-    border: 1px solid yellow;
-    color: yellow;
+    border: 1px solid black;
     margin-top: 1px;
     padding: 2px;
 }
@@ -42,7 +51,8 @@ body, html {
 }
 img {
     margin-top: 5px;
-    margin-right: 5px;
+    margin-right: 25px;
+    margin-bottom: 15px;
 }
 .gifBox {
     float: left;
