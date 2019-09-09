@@ -19,14 +19,16 @@ $(document).ready(function () {
 
         }).then(function (response) {
 
+            $("#gifs-view").empty()
+
             // Loop through response which is limited by limit = "10" in link
             for (var j = 0; j < response.data.length; j++) {
 
                 var newDiv = $("<div>")
 
                 //Rating display, maybe change to title
-                var newRated = response.data[j].rating
-                var ratedElement = $("<div>").text("Rated " + newRated)
+                var newRated = response.data[j].title
+                var ratedElement = $("<div>").text(newRated)
                 newDiv.append(ratedElement)
 
                 //Gif display
@@ -42,6 +44,7 @@ $(document).ready(function () {
                 imgElement.addClass("gifState")
                 newDiv.append(imgElement)
 
+                newDiv.addClass("gifBox")
                 $("#gifs-view").prepend(newDiv)
 
             }
@@ -72,7 +75,7 @@ $(document).ready(function () {
         var currentGifState = $(this).attr("data-state")
 
         if (currentGifState == "paused") {
-        //If gif is paused change src link to animated gif and change data state value to active
+            //If gif is paused change src link to animated gif and change data state value to active
             $(this).attr("src", $(this).attr("data-animate"))
             $(this).attr("data-state", "active")
         }
@@ -83,6 +86,7 @@ $(document).ready(function () {
     }
 
     $("#add-gifs").on("click", function (event) {
+
         event.preventDefault();
 
         var gif = $("#gif-input").val().trim();

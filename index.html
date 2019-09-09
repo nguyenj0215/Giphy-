@@ -8,24 +8,30 @@
     <title>Document</title>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Modak&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
+    <div class="title">Gif page!</div>
+
     <div class="container">
 
         <div id="buttons-view"></div>
 
-        <form id="movie-form">
-            <label for="movie-input">Add your own button</label>
-            <input type="text" id="gif-input"><br>
+        <form id="gif-form">
 
-            <input id="add-gifs" type="submit" value="Add your own!">
+            <input id="add-gifs" type="submit" value="Add your own: ">
+            
+            <input type="text" id="gif-input">
+
         </form>
 
         <div id="gifs-view"></div>
+    </div>
 
-        <script src="assets/javascript/app.js"></script>
+
+    <script src="assets/javascript/app.js"></script>
 </body>
 
 </html>

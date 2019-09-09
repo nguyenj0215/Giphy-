@@ -1,4 +1,49 @@
 body, html {
     margin: 0;
     padding: 0;
+    margin-left: 20px;
+    background-color: black;
+}
+.title {
+    position: absolute;
+    top: 5%;
+    left: 75%;
+    font-family: 'Modak', cursive;
+    font-size: 50px;
+    color: yellow;
+    letter-spacing: 4px;
+}
+.gif {
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    background-color: black;
+    color: yellow;
+}
+#add-gifs {
+    font-size: 20px;
+    background-color: black;
+    color: yellow;
+    padding: 2px;
+}
+#gif-input {
+    font-size: 20px;
+    background-color: black;
+    border: 1px solid yellow;
+    color: yellow;
+    margin-top: 1px;
+    padding: 2px;
+}
+#gifs-view {
+    font-weight: bold;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+img {
+    margin-top: 5px;
+    margin-right: 5px;
+}
+.gifBox {
+    float: left;
 }
