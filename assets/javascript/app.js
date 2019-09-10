@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
     //Initial array of buttons to be displayed
-    var giphyArray = ["dog", "cat", "owl", "bear"];
+    var giphyArray = ["packers", "chargers", "rams", "chiefs", "patriots", "raiders", "broncos", "49ers", "cardinals", "seahawks", "jets", "dolphins", "bills"];
 
     function displayGifs() {
 
@@ -11,7 +11,7 @@ $(document).ready(function () {
 
         //Giphy API ajax reference
         var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=xhOeDtimrOu6oqIq9pKAlNILZZqFHYAL&q=" + gif +
-            "&limit=10&offset=0&rating=G&lang=en";
+            "&limit=10&offset=0&rating=R&lang=en";
 
         $.ajax({
             url: queryURL,
@@ -27,8 +27,8 @@ $(document).ready(function () {
                 var newDiv = $("<div>")
 
                 //Rating display, maybe change to title
-                var newRated = response.data[j].title
-                var ratedElement = $("<div>").text(newRated)
+                var newRated = response.data[j].rating
+                var ratedElement = $("<div>").text("Rating: " + newRated)
                 newDiv.append(ratedElement)
 
                 //Gif display
@@ -101,7 +101,7 @@ $(document).ready(function () {
         renderButtons();
 
         $("#gif-input").val(" ")
-    });
+ø    });
 
     $(document).on("click", ".gif", displayGifs);
 
