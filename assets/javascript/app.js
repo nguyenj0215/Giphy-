@@ -2,7 +2,8 @@
 $(document).ready(function () {
 
     //Initial array of buttons to be displayed
-    var giphyArray = ["packers", "chargers", "rams", "chiefs", "patriots", "raiders", "broncos", "49ers", "cardinals", "seahawks", "jets", "dolphins", "bills"];
+    var giphyArray = ["packers", "chargers", "rams", "chiefs", "patriots", "raiders", 
+    "broncos", "49ers", "cardinals", "seahawks", "jets", "dolphins", "steelers"];
 
     function displayGifs() {
 
@@ -19,12 +20,19 @@ $(document).ready(function () {
 
         }).then(function (response) {
 
+            console.log(response)
+
             $("#gifs-view").empty()
 
             // Loop through response which is limited by limit = "10" in link
             for (var j = 0; j < response.data.length; j++) {
 
                 var newDiv = $("<div>")
+
+                var newTitle = response.data[j].title
+                var titleElement = $("<div>").text(newTitle)
+                titleElement.addClass("titleEle")
+                newDiv.append(titleElement)
 
                 //Rating display, maybe change to title
                 var newRated = response.data[j].rating
@@ -43,6 +51,7 @@ $(document).ready(function () {
 
                 //Initial state 
                 imgElement.attr("data-state", "paused")
+                imgElement.addClass("imgEle")
 
                 //Class for buttons to trigger state change on click
                 imgElement.addClass("gifState")
@@ -101,7 +110,8 @@ $(document).ready(function () {
         renderButtons();
 
         $("#gif-input").val(" ")
-ø    });
+        ø
+    });
 
     $(document).on("click", ".gif", displayGifs);
 
